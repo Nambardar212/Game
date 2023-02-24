@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { getLocalData } from "./LocalStorage";
 import "./LoginScreen.css";
 
 
@@ -80,6 +81,11 @@ const LoginScreen = () => {
     const isValidCredentials = await validateCredentials(userName, password);
 
     if (isValidCredentials) {
+      const data = getLocalData("userName");
+      if(data.played === undefined)
+      localStorage.setItem("userName", JSON.stringify({userName, played: 0}));
+      else 
+      localStorage.setItem("userName", JSON.stringify({userName, played: data.played}));
       navigate('/start');
     } else {
       alert("Enter valid Username and Password!");

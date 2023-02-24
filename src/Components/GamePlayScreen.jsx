@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./GamePlayScreen.css";
 
-function GamePlayScreen({setCount, count}) {
+function GamePlayScreen({setCount, count, name}) {
   const [coins, setCoins] = useState(21);
   const [playerTurn, setPlayerTurn] = useState(true);
 
@@ -21,6 +21,7 @@ function GamePlayScreen({setCount, count}) {
     setCoins(21);
     setPlayerTurn(true);
     setCount(count+1);
+    localStorage.setItem("userName", JSON.stringify({name, played : count+1}));
   };
 
   const renderCoins = () => {
@@ -30,6 +31,7 @@ function GamePlayScreen({setCount, count}) {
     }
     return result;
   };
+
 
   return (
     <div className="game-container">
