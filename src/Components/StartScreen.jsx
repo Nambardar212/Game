@@ -47,6 +47,7 @@ const StartScreen = () => {
              ) : (
                 <div className="buttonContainer">
                     <h3>Number of times played: {count}</h3>
+                    <h3>Number of times win: 0</h3>
                     <button className="button" onClick={handleButton }>Start</button>
                 </div>
                 

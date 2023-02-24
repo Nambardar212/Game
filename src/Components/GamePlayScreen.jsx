@@ -36,6 +36,7 @@ function GamePlayScreen({setCount, count, name}) {
   return (
     <div className="game-container">
       <h3>Number of times played: {count}</h3>
+      <h3>Number of times win: 0</h3>
       <h1>Coins Remaining: {coins}</h1>
       <div className="coin-container">{renderCoins()}</div>
       {coins > 1 ? (
